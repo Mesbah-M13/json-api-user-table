@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import { List, TextField } from "@material-ui/core";
+import React, { useState } from "react";
+import UserData from "./Components/UserData";
+import SearchIcon from "@material-ui/icons/Search";
+import IconButton from "@mui/material/IconButton";
+
 
 function App() {
+  const [inputText, setInputText] = useState("");
+  let inputHandler = (e) => {
+    //convert input text to lower case
+    var lowerCase = e.target.value.toLowerCase();
+    setInputText(lowerCase);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container p-4">
+
+      {/* <div className="search">
+        
+        <TextField
+          className="d-flex w-50 mx-auto"
+          id="outlined-basic"
+          onChange={inputHandler}
+          variant="outlined"
+          label="Search here for name & email...."
+        />
+        
+      </div> */}
+      
+
+      <UserData />
     </div>
   );
 }
-
 export default App;
